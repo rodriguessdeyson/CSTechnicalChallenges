@@ -1,4 +1,5 @@
 ﻿using CSTechnicalChallenges.Domain;
+using CSTechnicalChallenges.Domain.Helper;
 using CSTechnicalChallenges.Domain.Interfaces;
 
 namespace CSTechnicalChallenges.Services
@@ -12,8 +13,9 @@ namespace CSTechnicalChallenges.Services
 
 		public float ProcessMathExpression(string mathExpression)
 		{
-			throw new NotImplementedException();
-		}
+            List<string> postfixTokens = ShuntingYard.ConvertToPostfix(mathExpression);
+            return ShuntingYard.CalculatePostfix(postfixTokens);
+        }
 
 		public long Sum(long[] numbersToSum)
 		{
@@ -24,5 +26,5 @@ namespace CSTechnicalChallenges.Services
 		{
 			throw new NotImplementedException();
 		}
-	}
+    }
 }

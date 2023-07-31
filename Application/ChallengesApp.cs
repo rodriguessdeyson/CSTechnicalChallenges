@@ -16,6 +16,9 @@ namespace CSTechnicalChallenges.Application
             long[] nums = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
             Console.Write($"A soma dos inteiros é: {NumberService.Sum(nums)}");
 
+            string mathExpression = "2 + 3 * 5";
+            Console.Write($"A solução da expressão é: {NumberService.ProcessMathExpression(mathExpression)}");
+
 
         }
     }
