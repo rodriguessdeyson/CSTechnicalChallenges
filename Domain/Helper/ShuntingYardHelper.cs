@@ -15,19 +15,21 @@
 			{'/', 2}
 		};
 
-        #endregion
+		#endregion
 
-        /// <summary>
-        /// Converte uma expressão de notação infixa para RPN conforme o algorítmo de Dijkstra.
-        /// </summary>
-        /// <param name="expression">Expressão matemática.</param>
-        /// <returns>Notação RPN.</returns>
-        /// <exception cref="FormatException">Lança uma exceção caso o formato da expressão esteja errado.</exception>
-        internal static List<string> ConvertToPostfix(string expression)
+		#region Methods
+
+		/// <summary>
+		/// Converte uma expressão de notação infixa para RPN conforme o algorítmo de Dijkstra.
+		/// </summary>
+		/// <param name="expression">Expressão matemática.</param>
+		/// <returns>Notação RPN.</returns>
+		/// <exception cref="FormatException">Lança uma exceção caso o formato da expressão esteja errado.</exception>
+		internal static List<string> ConvertToPostfix(string expression)
 		{
-            if (expression.Split(' ').Length == 1)
+			if (expression.Split(' ').Length == 1)
 			{
-                throw new FormatException("O formato da expressão é inválido.");
+				throw new FormatException("O formato da expressão é inválido.");
 			}
 
 			List<string> postfixTokens = new();
@@ -51,11 +53,11 @@
 					}
 					operatorStack.Push(token[0]);
 				}
-                else
-                {
-                    throw new FormatException("O formato da expressão é inválido.");
-                }
-            }
+				else
+				{
+					throw new FormatException("O formato da expressão é inválido.");
+				}
+			}
 
 			while (operatorStack.Count > 0)
 			{
@@ -65,14 +67,14 @@
 			return postfixTokens;
 		}
 
-        /// <summary>
-        /// Realiza o cálculo de uma expressão matemática em notação polonesa inversa.
-        /// </summary>
-        /// <param name="postfixTokens">Expressão em notação polonesa inversa.</param>
-        /// <returns>Resolução da expressão matemática.</returns>
-        /// <exception cref="FormatException">Lança uma exceção em caso de divisão por zero.</exception>
-        /// <exception cref="DivideByZeroException">Lança uma exceção caso o formato da expressão esteja errado.</exception>
-        internal static long CalculatePostfix(List<string> postfixTokens)
+		/// <summary>
+		/// Realiza o cálculo de uma expressão matemática em notação polonesa inversa.
+		/// </summary>
+		/// <param name="postfixTokens">Expressão em notação polonesa inversa.</param>
+		/// <returns>Resolução da expressão matemática.</returns>
+		/// <exception cref="FormatException">Lança uma exceção em caso de divisão por zero.</exception>
+		/// <exception cref="DivideByZeroException">Lança uma exceção caso o formato da expressão esteja errado.</exception>
+		internal static long CalculatePostfix(List<string> postfixTokens)
 		{
 			Stack<long> operandStack = new();
 
@@ -84,11 +86,11 @@
 				}
 				else if (OperatorPrecedence.ContainsKey(token[0]))
 				{
-                    if (operandStack.Count < 2)
-                    {
-                        throw new FormatException("O formato da expressão é inválido.");
-                    }
-                    
+					if (operandStack.Count < 2)
+					{
+						throw new FormatException("O formato da expressão é inválido.");
+					}
+					
 					long operand2 = operandStack.Pop();
 					long operand1 = operandStack.Pop();
 
@@ -117,5 +119,7 @@
 
 			return operandStack.Pop();
 		}
+
+		#endregion
 	}
 }

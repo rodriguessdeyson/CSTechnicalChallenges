@@ -4,6 +4,9 @@ using CSTechnicalChallenges.Domain.Interfaces;
 
 namespace CSTechnicalChallenges.Services
 {
+	/// <summary>
+	/// Permite a criação de um objeto do tipo NumberService para manipulação de dados numéricos.
+	/// </summary>
 	public class NumberService : INumberService
 	{
 		#region Constructors
@@ -62,8 +65,8 @@ namespace CSTechnicalChallenges.Services
 				if (number / 1000000 > 1)
 					words += ToWords(number / 1000000) + " milhões ";
 				else
-                    words += ToWords(number / 1000000) + " milhão ";
-                number %= 1000000;
+					words += ToWords(number / 1000000) + " milhão ";
+				number %= 1000000;
 			}
 
 			if ((number / 1000) > 0)
@@ -87,9 +90,9 @@ namespace CSTechnicalChallenges.Services
 
 			if (number > 0)
 			{
-                if (words != "")
-                    words += "e ";
-                
+				if (words != "")
+					words += "e ";
+				
 				if (number < 20)
 					words += units[number];
 				else
