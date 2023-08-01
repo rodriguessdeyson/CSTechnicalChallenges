@@ -9,12 +9,67 @@ namespace CSTechnicalChallenges.Services
 	/// </summary>
 	public class NumberService : INumberService
 	{
-		#region Constructors
+        #region Attributes
 
-		/// <summary>
-		/// Inicializa um objeto do tipo NumberService.
-		/// </summary>
-		public NumberService()
+        private readonly string[] Units =
+        {
+            "zero",
+			"um",
+			"dois",
+			"três",
+			"quatro",
+			"cinco",
+			"seis",
+			"sete",
+			"oito",
+			"nove",
+			"dez",
+            "onze",
+			"doze",
+			"treze",
+			"catorze",
+			"quinze",
+			"dezesseis",
+			"dezessete",
+			"dezoito",
+			"dezenove"
+        };
+
+        private readonly string[] Dozens =
+        {
+            "", "",
+			"vinte",
+			"trinta",
+			"quarenta",
+			"cinquenta",
+			"sessenta",
+			"setenta",
+			"oitenta",
+			"noventa"
+        };
+
+        private readonly string[] Hundreds =
+        {
+            "",
+			"cento",
+			"duzentos",
+			"trezentos",
+			"quatrocentos",
+			"quinhentos",
+			"seiscentos",
+			"setecentos",
+			"oitocentos",
+			"novecentos"
+        };
+
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Inicializa um objeto do tipo NumberService.
+        /// </summary>
+        public NumberService()
 		{
 			
 		}
@@ -34,26 +89,10 @@ namespace CSTechnicalChallenges.Services
 			return numbersToSum.Sum();
 		}
 
-		private static readonly string[] units =
-		{
-			"zero", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez",
-			"onze", "doze", "treze", "catorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"
-		};
-
-		private static readonly string[] tens =
-		{
-			"", "", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"
-		};
-
-		private static readonly string[] hundreds =
-		{
-			"", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"
-		};
-
 		public string ToWords(long number)
 		{
 			if (number == 0)
-				return units[0];
+				return Units[0];
 
 			if (number < 0)
 				return "menos " + ToWords(-number);
@@ -83,7 +122,7 @@ namespace CSTechnicalChallenges.Services
 				}
 				else
 				{
-					words += hundreds[number / 100] + " ";
+					words += Hundreds[number / 100] + " ";
 				}
 				number %= 100;
 			}
@@ -94,12 +133,12 @@ namespace CSTechnicalChallenges.Services
 					words += "e ";
 				
 				if (number < 20)
-					words += units[number];
+					words += Units[number];
 				else
 				{
-					words += tens[number / 10];
+					words += Dozens[number / 10];
 					if ((number % 10) > 0)
-						words += " e " + units[number % 10];
+						words += " e " + Units[number % 10];
 				}
 			}
 

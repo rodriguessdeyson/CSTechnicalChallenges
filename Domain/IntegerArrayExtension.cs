@@ -43,9 +43,9 @@
 				});
 
 				// Resto de soma, se houver
-				for (int i = (numElements / splitSize) * splitSize; i < numElements; i++)
+				for (int index = (numElements / splitSize) * splitSize; index < numElements; index++)
 				{
-					sum += numbers[i];
+					sum += numbers[index];
 				}
 			}
 

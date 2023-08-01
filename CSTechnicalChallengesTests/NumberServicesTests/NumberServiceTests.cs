@@ -48,7 +48,8 @@ namespace CSTechnicalChallengesTests.NumberServicesTests
 		[InlineData(123, "cento e vinte e três")]
 		[InlineData(658, "seiscentos e cinquenta e oito")]
 		[InlineData(999, "novecentos e noventa e nove")]
-		[InlineData(1000000, "um milhão")]
+        [InlineData(-999, "menos novecentos e noventa e nove")]
+        [InlineData(1000000, "um milhão")]
 		[InlineData(3150000, "três milhões cento e cinquenta mil")]
 		[InlineData(9999999, "nove milhões novecentos e noventa e nove mil novecentos e noventa e nove")]
 		public void WriteTheNumberToWord(long numberToWord, string expected)
