@@ -56,13 +56,16 @@ namespace CSTechnicalChallenges.Application
 		private void FirstChallenge()
 		{
 			long testNumber = 458;
-			Console.WriteLine($"A representação por extenso do número {testNumber} é: {NumberService.ToWords(testNumber)}");
+			Console.WriteLine($"A representação por extenso do número {testNumber} é:" +
+				$"{NumberService.ToWords(testNumber)}");
 
 			testNumber = 658;
-			Console.WriteLine($"A representação por extenso do número {testNumber} é: {NumberService.ToWords(testNumber)}");
+			Console.WriteLine($"A representação por extenso do número {testNumber} é:" +
+				$"{NumberService.ToWords(testNumber)}");
 
 			testNumber = 9999999;
-			Console.WriteLine($"A representação por extenso do número {testNumber} é: {NumberService.ToWords(testNumber)}");
+			Console.WriteLine($"A representação por extenso do número {testNumber} é:" +
+				$"{NumberService.ToWords(testNumber)}");
 		}
 
 		/// <summary>
@@ -106,7 +109,7 @@ namespace CSTechnicalChallenges.Application
 		/// </summary>
 		private void FourthChallenge()
 		{
-			// Lista de objetos mocking.
+			// Objetos mocking.
 			UserMockModel drUser = new()
 			{
 				Name = "Deyson Rodrigues",
@@ -133,7 +136,7 @@ namespace CSTechnicalChallenges.Application
 			};
 
 			List<UserMockModel> listWithUniqueItems = ListManagerService
-				.ReturnOnlyUniqueObjects( users )
+				.ReturnOnlyUniqueObjects(users)
 				.ToList();
 
 			Console.WriteLine("Os elementos únicos na lista são: ");
