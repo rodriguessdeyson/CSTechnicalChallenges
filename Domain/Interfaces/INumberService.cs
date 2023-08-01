@@ -21,6 +21,6 @@
 		/// </summary>
 		/// <param name="mathExpression">Expressão matemática.</param>
 		/// <returns>Resultado da expressão matemática fornecida.</returns>
-		float ProcessMathExpression(string mathExpression);
+		long ProcessMathExpression(string mathExpression);
 	}
 }
